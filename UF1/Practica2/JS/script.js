@@ -58,13 +58,44 @@ function ejercicio4(){
 }
 
 function ejercicio5(){
-    
-    let entrada = prompt("introduce 5 numeros");
-    
-    entrada = parseInt(entrada);
-    
-    let numerosArray = [];
-    entrada.push(numerosArray);
+    //Primero inicializo un Array vacio.
+    let numeroArray = [];
 
-    console.log(numerosArray);
+    //Aquí creo un bucle donde irá preguntandole al usuario numeros hasta llegar a las 5 digitos
+    while (numeroArray.length <=4) {
+        let numero = prompt("Introduce un numero de 5 Digitos: ");
+        numero = parseInt(numero); //Aquí parseamos el prompt de String a entero
+        numeroArray.push(numero); //Aqui metemos los elementos del prompt en el Array.
+        
+    }
+    console.log(numeroArray);
+    //Aquí creo una variable para coger el ultimo digito del array.
+    let ultimoElemento = numeroArray[numeroArray.length -1]; 
+
+    // Comparamos el primer elemento del array con el ultimo.
+    if (numeroArray[0] == ultimoElemento) {
+        console.log("Tienen el mismo numero, primer digito: " + numeroArray[0] + " Último digito: " + ultimoElemento);
+    }else{
+        console.log("NO Tienen el mismo numero, primer digito: " + numeroArray[0] + " Último digito: " + ultimoElemento);
+    }
+}
+
+function ejercicio6(){
+    let palabra = prompt("Introduce una palabra");
+    
+    let ultimoCaracter = palabra.charAt(palabra.length -1); // creamos la variable ultimoCaracter para guardar el ultimo digito o palabra.
+
+    console.log(ultimoCaracter);
+
+    if (!isNaN(ultimoCaracter)) { // Aqui lo que hacemos es contradecir el isNan(is not a number) -> (esto no es un numero) y lo que hacemos es negarlo con lo cual pasa de false a true.
+        console.log("Es un numero");
+    }else if (ultimoCaracter) {
+        console.log("Es una letra");
+    }else{
+        console.log("No es ni numero ni letra")
+    }
+}
+
+function ejercicio7(){
+    prompt
 }
