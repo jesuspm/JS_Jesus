@@ -99,3 +99,4 @@ function ejercicio6(){
 function ejercicio7(){
     prompt
 }
+
