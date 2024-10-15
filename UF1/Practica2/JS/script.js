@@ -6,6 +6,8 @@ function ejercicio1(){
     }else{
         console.log("No es un numero");
     }
+
+    
 }
 
 // Aquí le paso por parametro x que más hacia adelante le aplicaremos un valor.
