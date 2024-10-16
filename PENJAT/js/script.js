@@ -7,6 +7,7 @@ const palabraSecretaChange = document.getElementById("palabraSecretaTexto");
 let palabraSecreta;
 let deshabilitarBoton;
 let deshabilitarInput;
+let letrasAbarraBaja;
 let palabraActual = [];
 
 //Funcion para comenzar partida, funciona OK.
@@ -58,15 +59,31 @@ function showPassword(){
 
 function palabraActualInicial(){
     for (let i = 0; i < palabraSecreta.length; i++) {
-        console.log(palabraActual.push("_"));
+        palabraActual.push("_");
     }
+    console.log(palabraActual);
+}
+
+function cambioDeLetras(){
+    letrasAbarraBaja = palabraSecretaChange;
+    letrasAbarraBaja.textContent = palabraActual.toString().replaceAll(",", "");
 }
 
 
-function jugarLletra(obj){
-    let  lletraJugada = obj.textContent;
-    console.log(lletraJugada);
-}
+// function jugarLletra(obj){
+//     let  lletraJugada = obj.textContent;
+//     const aux = palabraSecreta.includes(lletraJugada);
+//     const aux2 = palabraSecreta.indexof(lletraJugada);
+
+//     if (palabraSecreta.includes(lletraJugada)) {
+//         for(let i = 0; i < palabraSecreta.length; i++){
+//             if (palabraSecreta[i] === lletraJugada) {
+//                 palabraActual[i] = lletraJugada;
+//             }
+//         }
+//         cambioDeLetras
+//     }
+// }
 function deshabilitaboto(){
     const botoA = document.getElementById("boto_A");
     botoA.disabled = true;
