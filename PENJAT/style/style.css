@@ -82,6 +82,9 @@ footer button:hover {
 #boton_1 {
     font-size: 1.2rem;
 }
+#palabraSecretaTexto{
+    letter-spacing: 10px;
+}
 
 /* Responsividad */
 @media (max-width: 768px) {
@@ -94,3 +97,4 @@ footer button:hover {
         text-align: center;
     }
 }
+
