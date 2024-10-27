@@ -79,9 +79,15 @@ footer button:hover {
     background-color: #d0d0d0;
 }
 
-#boton_1 {
+/* #boton_1 {
     font-size: 1.2rem;
-}
+    background-color:greenyellow;
+    border-width: 1px;
+    border-style: solid;
+    border-color: red;
+    
+} */
+ 
 #palabraSecretaTexto{
     letter-spacing: 10px;
 }
