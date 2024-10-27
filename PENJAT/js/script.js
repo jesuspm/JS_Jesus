@@ -17,6 +17,14 @@ let palabraActual = [];
 let contador = 10;
 
 
+// VARIABLES DE ESTADÍSTICAS
+let puntsActuals = 0;
+let totalPartides = 0;
+let partidesGuanyades = 0;
+let rachaAciertos = 0;
+let partidaMesPunts = 0;
+let dataHoraMillorPartida = "";
+
 deshabilitarBtn();
 //Funcion para comenzar partida, funciona OK.
 function start(){
@@ -126,6 +134,7 @@ function jugarLletra(obj){ //le pasamos como parametro obj que hace referencia a
 
     //Si acierta todas las letras llamará a la siguiente función.
     verificarVictoria();
+    actualizarEstadisticas();
 }
 
 function enviarLetraAlHTML(){
@@ -139,15 +148,19 @@ function enviarLetraAlHTML(){
 // Verificar si el jugador ha ganado (si ya no hay "_")
 function verificarVictoria() {
     if (palabraActual.join('') === palabraSecreta.join('')) {
+        partidesGuanyades++;
+        totalPartides++;
         // Cambiar el color de fondo del h1 al acertar la palabra
         const h1Elemento = document.getElementById('palabraSecretaTexto');
         h1Elemento.style.backgroundColor = "lightgreen"; // Cambia el color de fondo del h1
         alert("¡Has acertado la palabra!");
     }
+    
 }
 
 //Funcion para pintar el h1 cuando pierde la partida.
 function verificarDerrota(){
+    totalPartides++;
     if (contador == 0) {
         alert("Se han terminado las oportunidades!")
         
@@ -156,8 +169,9 @@ function verificarDerrota(){
         h1ElementoRojo.textContent = palabraSecreta.join('');
         h1ElementoRojo.style.backgroundColor = "red";
     }
-
-    
+    puntsActuals = 0;
+    contador = 10;
+    actualizarEstadisticas();
 }
 
 //Funcion para deshabilitar los botones una vez comience la partida.
@@ -230,4 +244,18 @@ function habilitarBtn(){
         //Lo deshabilitamos 1 a 1.
         button.disabled = false;
     }
+}
+
+// ACTUALIZAR LA INTERFAZ CON LAS ESTADÍSTICAS
+function actualizarEstadisticas() {
+    document.getElementById('puntsActuals').textContent = puntsActuals;
+    document.getElementById('totalPartides').textContent = totalPartides;
+    document.getElementById('partidesGuanyades').textContent = partidesGuanyades;
+    document.getElementById('percentatgeVictories').textContent = calcularPercentatge() + '%';
+    document.getElementById('partidaMesPunts').textContent = `${dataHoraMillorPartida} - ${partidaMesPunts} punts`;
+}
+
+// CALCULAR PORCENTAJE DE VICTORIAS
+function calcularPercentatge() {
+    return totalPartides > 0 ? Math.round((partidesGuanyades / totalPartides) * 100) : 0;
 }
