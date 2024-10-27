@@ -112,9 +112,9 @@ function jugarLletra(obj){ //le pasamos como parametro obj que hace referencia a
         obj.style.borderWidth = "1px";
         obj.style.borderStyle = "solid";
         obj.style.borderColor = "red";
-        //Decrementamos el contador cuando fallamos una letra.
+        //Decrementamos el contador cuando fallamos una letra  y llama a imagenesColgado para actualizar la imagen
         contador--;
-    
+        imagenesColgado();
         //Filtro para cuando el contador llega a 0 y quiero que ejecute la funcion de verificarDerrota()
         if (contador == 0) {
             verificarDerrota();
@@ -173,10 +173,20 @@ function estiloLetras(){
 }
 
 
-// //Falta por implementar
-// function imagenesColgado(){
-//     let fotosColgado = document.getElementById('imagenesColgado')
-// }
+//Falta por implementar
+function imagenesColgado() {
+    // Selecciona el div en el HTML donde se mostrará la imagen
+    let fotosColgado = document.getElementById('imagenesColgado');
+    
+    // Calcular el índice de la imagen a mostrar en base al contador (10 - contador actual)
+    let imagenNumero = 10 - contador;
+
+    // Actualizar el fondo del div con la imagen correspondiente
+    fotosColgado.style.backgroundImage = `url('img/penjat_${imagenNumero}.jpg')`;
+    fotosColgado.style.backgroundSize = "cover"; // Ajusta la imagen al tamaño del div
+    fotosColgado.style.backgroundPosition = "center"; // Centra la imagen en el div
+}
+
 
 //Funcion para recorrer los botones de uno en uno mediante la id
 function deshabilitarBtn(){

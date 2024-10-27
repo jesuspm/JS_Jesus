@@ -92,6 +92,12 @@ footer button:hover {
     letter-spacing: 10px;
 }
 
+#imagenesColgado {
+    width: 300px;     /* Ajusta el tamaño como desees */
+    height: 400px;    /* Ajusta el tamaño como desees */
+    border: 1px solid #333;
+    background-color: #f0f0f0; /* Fondo de respaldo */
+}
 /* Responsividad */
 @media (max-width: 768px) {
     header, footer {
