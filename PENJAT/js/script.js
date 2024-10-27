@@ -118,6 +118,7 @@ function jugarLletra(obj){ //le pasamos como parametro obj que hace referencia a
         //Filtro para cuando el contador llega a 0 y quiero que ejecute la funcion de verificarDerrota()
         if (contador == 0) {
             verificarDerrota();
+            deshabilitarBtn();
         }
 
         // REVISAR: Lo hace bien, pero si seguimos dandole click a letras que no son sigue decrementando
@@ -147,10 +148,15 @@ function verificarVictoria() {
 
 //Funcion para pintar el h1 cuando pierde la partida.
 function verificarDerrota(){
-     
-    alert("Se han terminado las oportunidades!")
-    const h1ElementoRojo = document.getElementById('palabraSecretaTexto');
-    h1ElementoRojo.style.backgroundColor = "red";
+    if (contador == 0) {
+        alert("Se han terminado las oportunidades!")
+        
+        const h1ElementoRojo = document.getElementById('palabraSecretaTexto');
+        
+        h1ElementoRojo.textContent = palabraSecreta.join('');
+        h1ElementoRojo.style.backgroundColor = "red";
+    }
+
     
 }
 
