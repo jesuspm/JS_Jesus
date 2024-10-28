@@ -4,10 +4,11 @@ const botonBorrar = document.getElementById("botonBorrar");
 const nombreJugadorObjeto = document.getElementById("nombreJugador");
 const infoNavegadorObj = document.getElementById("infoNavegador");
 const infoUrlObj = document.getElementById("infoUrl");
+
 //DECLARAR EVENTOS
 
-// la funcion comienzaPartida sin () ya que no estoy ejecutando la funcion solo la estamos llamando
-
+//La funciones en eventos van sin () ya que no estoy
+//ejecutando la funcion solo la estamos llamando
 botonPartida.addEventListener("click", comienzaPartida);
 botonBorrar.addEventListener("click", borrarPartida);
 
@@ -17,7 +18,6 @@ let finestra;
 
 
 //FUNCIONABILIDAD
-
 function comienzaPartida(){
     if(nombreJugadorObjeto.value){
        finestra = window.open("juego.html","juego","width=400,height=400"); //Abrirá una nueva ventana
