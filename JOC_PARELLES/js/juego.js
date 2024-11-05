@@ -1,5 +1,16 @@
-const nombreObj = document.getElementById("nombre");
+//CONSTANTES
+const nombreObj = document.getElementById("nombreJugador");
+const puntuacionMasAlta = document.getElementById("puntuacionMasAlta");
 
-const nombreStorage = localStorage.getItem("nombre")
 
+//LOCAL STORAGE
+const nombreStorage = localStorage.getItem("Nombre")
+
+//VARIABLES
+let nombreJugadorActual = nombreObj.value;
 nombreObj.textContent = nombreStorage;
+
+
+puntuacionMasAlta.textContent = "JUGADOR: " + "- PUNTS: ";
+
+

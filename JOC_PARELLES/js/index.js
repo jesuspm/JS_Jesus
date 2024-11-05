@@ -1,10 +1,16 @@
 //DECLARAR OBJETOS
+//BOTONES
 const botonPartida = document.getElementById("botonPartida");
 const botonBorrar = document.getElementById("botonBorrar");
-const nombreJugadorObjeto = document.getElementById("nombreJugador");
+
+//NOMBRES
+const inputNombreJugador = document.getElementById("nombreJugador");
+
+
+//INFO
 const infoNavegadorObj = document.getElementById("infoNavegador");
 const infoUrlObj = document.getElementById("infoUrl");
-
+const infoPartidaActual = document.getElementById("infoPartida");
 //DECLARAR EVENTOS
 
 //La funciones en eventos van sin () ya que no estoy
@@ -14,15 +20,22 @@ botonBorrar.addEventListener("click", borrarPartida);
 
 //DECLARAR VARIABLES Y CONSTANTES
 let finestra;
-
+let valorNombreJugador = inputNombreJugador.value;
+let puntos = 0;
+let inforPartida = infoPartidaActual.value;
 
 
 //FUNCIONABILIDAD
 function comienzaPartida(){
-    if(nombreJugadorObjeto.value){
-       finestra = window.open("juego.html","juego","width=400,height=400"); //Abrirá una nueva ventana
+    if(inputNombreJugador.value){
+        finestra = window.open("juego.html","juego","width=400,height=400"); //Abrirá una nueva ventana
+        
+        //Guardamos el nombre en localStorage
+        localStorage.setItem("Nombre",valorNombreJugador);
+
+        //Aqui mostramos el nombre en el <p id="infoPartida">
+        infoPartidaActual.textContent = "NOM: " + valorNombreJugador + ", PUNTS: "+ puntos + ", ESTAT PARTIDA: En joc";
        
-       localStorage.setItem("nombre","jesus");
     }
     else{
         alert("Has de introduir un nom d'un jugador");
@@ -30,7 +43,12 @@ function comienzaPartida(){
 }
 
 function borrarPartida(){
+    //Para eliminar el localStorage cuando le demos al boton borrarPartida
+    localStorage.removeItem("Nombre");
     finestra.close("juego.html");
+    infoPartidaActual.textContent = "No hi ha cap partida en joc";
+
+
 }
 
 function infoNavegador(){
