@@ -1,5 +1,42 @@
-body{
-    text-align: center;
+/* Estilo básico para el contenedor y los cuadrados */
+body {
     background-color: #f08b19;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#puntosJugador {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    padding: 20px;
+    background-color: #f08b19; /* Fondo de todo el contenedor */
     
+}
+
+/* Estilo de los cuadrados */
+.cuadradito {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db; /* Color de los cuadrados ocultos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: transparent; /* Texto oculto inicialmente */
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Estilo cuando el cuadrado está revelado */
+.cuadradito.revelado {
+    background-color: #95a5a6; /* Color gris cuando se revela */
+    color: white; /* Letra visible */
 }
